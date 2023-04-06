@@ -5,6 +5,13 @@ from typing import Annotated
 from typing import Union
 
 app = FastAPI()
+
+@app.get('/health_check')
+async def check_health():
+    return {
+        'health_check': 'ok'
+    }
+
 """
 @app.post('/files/')
 async def create_file(file: Annotated[Union[bytes, None], File()] = None):
